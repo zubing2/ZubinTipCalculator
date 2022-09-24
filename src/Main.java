@@ -20,28 +20,35 @@ public class Main {
         DecimalFormat formatter = new DecimalFormat("#.00");
 
 
-
-
         double input = 0;
         double total = 0;
 
+        double finalTotal = 0;
+        double finalTip = 0;
+        double num = 0;
+        double num2 = 0;
         while (input != -1) {
             System.out.print("What is the cost of the item? (dollars and cents) (Type -1 to end): ");
             input = scan.nextDouble();
             total = (total + input);
-            double num = total;
-            String formattedNum = formatter.format(num);
+            num = total;
+
+
         }
-        double formattedNum = total;
         total++;
         System.out.println("--------------------------");
-        System.out.println("The total cost before tax: " + formattedNum);
+        String formattedNum = formatter.format(num);
+        finalTotal = Double.parseDouble(formattedNum);
+        System.out.println("The total cost before tax: " + finalTotal);
         System.out.println("Tip Percentage: " + tipAmount);
-        double totalTip = (total * tipPercent);
-        System.out.println("Total Tip: " + totalTip);
-        System.out.println("Total Bill with Tip: " + (total+totalTip));
-        System.out.println("Cost per person before tip: " + (total/groupAmount));
-        System.out.println("Tip per person: " +  (totalTip/groupAmount));
-        System.out.println("Total amount per person: " + ((total+totalTip)/groupAmount));
+        double totalTip = (finalTotal * tipPercent);
+        num2 = totalTip;
+        String formattedTip = formatter.format(num2);
+        finalTip = Double.parseDouble(formattedTip);
+        System.out.println("Total Tip: " + finalTip);
+        System.out.println("Total Bill with Tip: " + (total + totalTip));
+        System.out.println("Cost per person before tip: " + (total / groupAmount));
+        System.out.println("Tip per person: " + (totalTip / groupAmount));
+        System.out.println("Total amount per person: " + ((total + totalTip) / groupAmount));
     }
 }
